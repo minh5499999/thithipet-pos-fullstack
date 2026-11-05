@@ -1,0 +1,17 @@
+/* Các thiết lập nền tảng nằm ở theme.css — file này chỉ giữ phần gốc ứng dụng */
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* Mã sản phẩm / mã đơn hiển thị dạng viên thuốc cho dễ đọc, dễ phân biệt */
+code {
+  font-family: var(--font-mono);
+  font-size: .92em;
+  letter-spacing: .3px;
+  padding: 2px 7px;
+  border-radius: var(--r-xs);
+  background-color: var(--surface-3);
+  color: var(--ink-500);
+}

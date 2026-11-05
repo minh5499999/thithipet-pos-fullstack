@@ -1,0 +1,352 @@
+/* =========================================================================
+   MÀN HÌNH ĐĂNG NHẬP — THITHIPET POS
+   (Biến màu / bo góc / bóng đổ lấy từ theme.css)
+   ========================================================================= */
+
+.pet-pos-login-env {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 60px;
+  overflow: hidden;
+  font-family: var(--font);
+  background-color: #dff3f5;
+  /* Nền rải dấu chân thú cưng thay cho hoa văn chấm bi vô hồn */
+  background-image:
+    var(--paw-svg),
+    linear-gradient(160deg, #eafafb 0%, #dff3f5 45%, #cfeaee 100%);
+  background-size: 150px 150px, cover;
+  background-attachment: fixed;
+}
+
+/* Hai quầng sáng mờ trang trí, tạo chiều sâu cho nền phẳng */
+.pet-pos-login-env::before,
+.pet-pos-login-env::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+.pet-pos-login-env::before {
+  width: 460px;
+  height: 460px;
+  top: -160px;
+  left: -140px;
+  background: radial-gradient(circle, rgba(255, 132, 19, .20) 0%, rgba(255, 132, 19, 0) 70%);
+}
+.pet-pos-login-env::after {
+  width: 540px;
+  height: 540px;
+  bottom: -220px;
+  right: -180px;
+  background: radial-gradient(circle, rgba(14, 90, 96, .18) 0%, rgba(14, 90, 96, 0) 70%);
+}
+
+/* =========================================
+   THẺ FORM TRUNG TÂM
+========================================= */
+.pet-pos-login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 70px;
+  padding: 82px 36px 40px;
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: var(--r-2xl);
+  box-shadow:
+    0 30px 70px rgba(14, 90, 96, .14),
+    0 10px 24px rgba(14, 90, 96, .07);
+  text-align: center;
+  animation: cardFadeIn .55s var(--ease-out) both;
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(22px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =========================================
+   LOGO TRÒN NỔI TRÊN MÉP THẺ
+========================================= */
+.pet-pos-logo-wrapper {
+  position: absolute;
+  top: -68px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 136px;
+  height: 136px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  background-color: #fff;
+  border: 3px solid var(--brand-700);
+  border-radius: 50%;
+  box-shadow:
+    0 14px 30px rgba(14, 90, 96, .18),
+    0 0 0 8px rgba(255, 255, 255, .55);
+  z-index: 10;
+}
+
+.pet-brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pet-pos-title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-700);
+  letter-spacing: -.3px;
+}
+
+.pet-pos-subtitle {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--ink-400);
+  font-weight: 600;
+}
+
+/* =========================================
+   THANH CHUYỂN QUYỀN (NHÂN VIÊN / QUẢN TRỊ)
+========================================= */
+.pet-pos-tab-capsule {
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  margin: 22px 0 26px;
+  background-color: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-pill);
+}
+
+.pet-tab-btn {
+  flex: 1;
+  padding: 11px 6px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: var(--ink-400);
+  transition: background-color var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+
+.pet-tab-btn:hover:not(.active-staff):not(.active-admin) {
+  color: var(--brand-700);
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.pet-tab-btn.active-staff {
+  background: linear-gradient(135deg, var(--accent-400) 0%, var(--accent-500) 100%);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(255, 132, 19, .35);
+}
+
+.pet-tab-btn.active-admin {
+  background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-700) 100%);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(14, 90, 96, .35);
+}
+
+/* =========================================
+   FORM NHẬP LIỆU
+========================================= */
+.pet-pos-form { text-align: left; }
+
+.pet-input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.pet-input-group input {
+  width: 100%;
+  padding: 15px 48px;
+  border: 2px solid var(--brand-200);
+  border-radius: var(--r-pill);
+  background-color: var(--surface-2);
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--ink-700);
+  transition: border-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              background-color var(--dur) var(--ease);
+}
+
+.pet-input-group input::placeholder { color: var(--ink-300); }
+
+.pet-input-group input:hover { border-color: var(--brand-300); }
+
+.pet-input-group input:focus {
+  border-color: var(--accent-500);
+  background-color: #fff;
+  box-shadow: var(--ring-accent);
+  outline: none;
+}
+
+/* Icon trái đổi màu theo trạng thái focus của ô nhập */
+.pet-input-icon-left {
+  position: absolute;
+  left: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--ink-400);
+  pointer-events: none;
+  transition: transform var(--dur) var(--ease);
+}
+
+.pet-input-group:focus-within .pet-input-icon-left { transform: translateY(-50%) scale(1.12); }
+
+.pet-input-icon-right-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 17px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.pet-input-icon-right-toggle:hover { background-color: var(--brand-50); }
+
+/* =========================================
+   NÚT ĐĂNG NHẬP
+========================================= */
+.pet-btn-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, var(--accent-400) 0%, var(--accent-500) 55%, var(--accent-600) 100%);
+  color: #fff;
+  font-size: 15.5px;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 22px rgba(255, 132, 19, .32);
+  transition: transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur) var(--ease),
+              filter var(--dur) var(--ease);
+}
+
+.pet-btn-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(255, 132, 19, .40);
+  filter: brightness(1.04);
+}
+
+.pet-btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(255, 132, 19, .3);
+}
+
+.pet-btn-submit:disabled {
+  opacity: .75;
+  cursor: progress;
+  transform: none;
+}
+
+/* Vòng xoay chờ khi đang gọi API đăng nhập */
+.pet-spinner {
+  width: 17px;
+  height: 17px;
+  border: 2.5px solid rgba(255, 255, 255, .45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spinLoop .7s linear infinite;
+}
+
+/* =========================================
+   CHÂN TRANG & TRANG TRÍ
+========================================= */
+.pet-login-hint {
+  margin: 20px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-300);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.pet-pos-login-footer {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  color: var(--brand-700);
+  opacity: .65;
+}
+
+/* 🐾 Bàn tay mèo nâng thẻ form */
+.paw-decoration {
+  position: absolute;
+  bottom: -155px;
+  left: 50%;
+  width: 470px;
+  max-width: 115%;
+  height: auto;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 24px rgba(14, 90, 96, .18));
+  animation: floatPaw 3.6s ease-in-out infinite;
+}
+
+@keyframes floatPaw {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, -9px); }
+}
+
+/* =========================================
+   MÀN HÌNH NHỎ
+========================================= */
+@media (max-width: 480px) {
+  .pet-pos-login-card {
+    margin-top: 56px;
+    padding: 70px 22px 32px;
+  }
+  .pet-pos-logo-wrapper {
+    width: 112px;
+    height: 112px;
+    top: -56px;
+  }
+  .pet-tab-btn { font-size: 12.5px; letter-spacing: .2px; }
+  .paw-decoration { bottom: -110px; width: 330px; }
+}
+
+@media (max-height: 700px) {
+  .paw-decoration { display: none; }
+  .pet-pos-login-footer { display: none; }
+}

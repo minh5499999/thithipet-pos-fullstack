@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/logopetshop.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e5a60" />
+    <meta
+      name="description"
+      content="ThiThiPet POS - Phần mềm quản lý bán hàng, dịch vụ và chăm sóc thú cưng"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logopetshop.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!--
+      Tải font Quicksand ngay từ HTML thay vì @import trong CSS:
+      @import khiến trình duyệt phải tải xong CSS mới biết đường tải font
+      (thêm 1 vòng request nối tiếp). Preconnect + link ở đây cho phép tải
+      song song, chữ hiện nhanh hơn rõ rệt ở lần mở đầu tiên.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap"
+    />
+    <!-- Máy chủ sinh mã VietQR: kết nối sẵn để ảnh QR hiện tức thì khi thanh toán -->
+    <link rel="preconnect" href="https://img.vietqr.io" />
+
+    <title>ThiThiPet POS — Quản lý bán hàng thú cưng</title>
+  </head>
+  <body>
+    <noscript>Bạn cần bật JavaScript để sử dụng phần mềm ThiThiPet POS.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
